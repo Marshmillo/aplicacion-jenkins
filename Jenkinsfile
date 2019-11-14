@@ -16,6 +16,7 @@ node {
     sh "aws s3 sync ~/repo s3://pdg-test-bucket/ --region us-east-1 --delete"
   stage "Check YUM repo"
     sh "yum clean all"
+    sh "sudo yum-config-manager --enable"
     sh "sudo yum update -y"
     sh "sudo yum info demo-app-\$(git rev-parse --short HEAD)"
 }
