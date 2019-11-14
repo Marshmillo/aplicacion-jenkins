@@ -3,6 +3,7 @@
 node {
 
   stage "Checkout Git repo"
+    whoami
     checkout scm
   stage "Run tests"
     sh "docker run -v \$(pwd):/app --rm phpunit/phpunit tests/"
