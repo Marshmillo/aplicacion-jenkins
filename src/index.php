@@ -2,7 +2,7 @@
 function greet($name) {
   return "Hello $name!";
 }
-// Esta es la prueba despues de la configuracion de usuario
+// Sacando el usuario para darle permisos de sudo
 $full_name = "Marshmillo";
 echo greet ($full_name);
 
