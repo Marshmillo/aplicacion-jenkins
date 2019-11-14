@@ -3,7 +3,6 @@
 node {
 
   stage "Checkout Git repo"
-    sh "whoami"
     checkout scm
   stage "Run tests"
     sh "docker run -v \$(pwd):/app --rm phpunit/phpunit tests/"
@@ -17,5 +16,5 @@ node {
     sh "aws s3 sync ~/repo s3://pdg-test-bucket/ --region us-east-1 --delete"
   stage "Check YUM repo"
     sh "yum clean all"
-    sh "sudo yum info demo-app-\$(git rev-parse --short HEAD).rpm"
+    sh "sudo yum info demo-app-\$(git rev-parse --short HEAD)"
 }
